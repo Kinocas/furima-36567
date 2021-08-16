@@ -7,9 +7,11 @@
 | nickname           | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| name               | string | null: false |
-| name_kana          | string | null: false |
-| birthday           | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_kana     | string | null: false |
+| first_name_kana    | string | null: false |
+| birthday           | data   | null: false |
 
 
 ### Association
@@ -23,6 +25,11 @@
 | ----------- | ---------- | ------------------------------ |
 | name        | string     | null: false                    |
 | explanation | text       | null: false                    |
+| category    | string     | null: false                    |
+| status      | string     | null: false                    |
+| fee_burden  | string     | null: false                    |
+| area        | string     | null: false                    |
+| days        | integer    | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
 ### Association
@@ -40,14 +47,17 @@
 ### Association
 
 - belongs_to :item
-_ has_one :shopping
+- has_one :shopping
 
 ##  shoppingテーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | postal_code  | integer    | null: false                    |
+| prefectures  | string     | null: false                    |
+| city         | string     | null: false                    |
 | address      | string     | null: false                    |
+| building     | string     | null: false                    |
 | phone_number | integer    | null: false                    |
 | purchase     | references | null: false, foreign_key: true |
 
