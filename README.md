@@ -50,7 +50,7 @@
 - belongs_to :item
 - has_one :shopping
 
-##  shoppingテーブル
+##  shoppingsテーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
