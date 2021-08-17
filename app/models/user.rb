@@ -10,7 +10,7 @@ class User < ApplicationRecord
     validates :last_name
     validates :first_name
   end
-  with_options presence: true, format: { with: /\A[\p{katakana}\u{30fc}]+\z/ } do
+  with_options presence: true, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ } do
     validates :last_name_kana
     validates :first_name_kana
   end
