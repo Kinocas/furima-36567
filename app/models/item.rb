@@ -6,12 +6,12 @@ class Item < ApplicationRecord
   end
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
-    validates :status_id 
+    validates :status_id
     validates :fee_burden_id
     validates :prefecture_id
     validates :day_id
   end
-  
+
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   belongs_to :user
