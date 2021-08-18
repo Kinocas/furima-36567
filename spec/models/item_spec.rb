@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   describe '商品出品機能' do
-
     before do
       @item = FactoryBot.build(:item)
     end
@@ -66,7 +65,7 @@ RSpec.describe Item, type: :model do
       it 'userが空では出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "User must exist"
+        expect(@item.errors.full_messages).to include 'User must exist'
       end
       it 'category_idが1では出品できない' do
         @item.category_id = '1'
@@ -96,27 +95,27 @@ RSpec.describe Item, type: :model do
       it 'priceが¥300以下では出品できない' do
         @item.price = '100'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be greater than or equal to 300"
+        expect(@item.errors.full_messages).to include 'Price must be greater than or equal to 300'
       end
       it 'priceが¥9,999,999以上では出品できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price must be less than or equal to 9999999"
+        expect(@item.errors.full_messages).to include 'Price must be less than or equal to 9999999'
       end
       it 'priceが全角の値では出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'priceが英字の値では出品できない' do
         @item.price = 'abcd'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
       it 'priceが英数字混同の値では出品できない' do
         @item.price = 'abc1000'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is not a number"
+        expect(@item.errors.full_messages).to include 'Price is not a number'
       end
     end
   end

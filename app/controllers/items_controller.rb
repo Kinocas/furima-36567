@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  
+
   def index
   end
 
@@ -24,5 +24,4 @@ class ItemsController < ApplicationController
       :image, :name, :explanation, :category_id, :status_id, :fee_burden_id, :prefecture_id, :day_id, :price
     ).merge(user_id: current_user.id)
   end
-
 end
