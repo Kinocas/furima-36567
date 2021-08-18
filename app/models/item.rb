@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   validates :fee_burden_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :day_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :price, presence: true
 
   belongs_to :user
   has_one :purchase 
