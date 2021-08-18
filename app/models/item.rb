@@ -1,12 +1,17 @@
 class Item < ApplicationRecord
-  validates :image, presence: true
-  validates :name, presence: true
-  validates :explanation, presence: true
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :fee_burden_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :day_id, numericality: { other_than: 1, message: "can't be blank" }
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :explanation
+  end
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
+    validates :category_id
+    validates :status_id 
+    validates :fee_burden_id
+    validates :prefecture_id
+    validates :day_id
+  end
+  
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   belongs_to :user
