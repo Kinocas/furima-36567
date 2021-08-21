@@ -50,10 +50,15 @@ RSpec.describe OrderShopping, type: :model do
         @order_shopping.valid?
         expect(@order_shopping.errors.full_messages).to include("User can't be blank")
       end
-      it 'itemが空では保存できない' do
+      it 'item_idが空では保存できない' do
         @order_shopping.item_id = ''
         @order_shopping.valid?
         expect(@order_shopping.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが空では保存できない' do
+        @order_shopping.token = ''
+        @order_shopping.valid?
+        expect(@order_shopping.errors.full_messages).to include("Token can't be blank")
       end
       it 'postal_codeに半角ハイフンが正しい位置でないと保存できない' do
         @order_shopping.postal_code = '1234-567'
