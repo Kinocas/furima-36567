@@ -27,7 +27,7 @@
     
     <% if user_signed_in? %>
       <% unless @order.empty? %>
-        <%= link_to "トップページに戻る", root_path ,class:"item-red-btn"%>
+        <%#= link_to "トップページに戻る", root_path ,class:"item-red-btn"%>
       <% else %>
         <% if current_user.id == @item.user_id %>
           <%= link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-red-btn" %>
