@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     validates :name
     validates :explanation
   end
-  with_options numericality: { other_than: 1, message: "can't be blank" } do
+  with_options numericality: { other_than: 1 ,message: "を選択してください" } do
     validates :category_id
     validates :status_id
     validates :fee_burden_id
